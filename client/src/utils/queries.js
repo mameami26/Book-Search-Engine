@@ -14,7 +14,8 @@ export const QUERY_USER = gql`
       _id
       book1
       book2
-      book3
+      book1_votes
+      book2_votes
     }
   }
 `;
