@@ -1,23 +1,67 @@
 import { gql } from "@apollo/client";
 
-export const CREATE_USER = gql`
-  mutation createUser($book1: String!, $book2: String!) {
-    createUser(book1: $book1, book2: $book2) {
-      _id
-      book1
-      book2
+// Mutation to log in a user
+export const LOGIN_USER = gql`
+  mutation loginUser($email: String!, $password: String!) {
+    loginUser(email: $email, password: $password) {
+      token
+      user {
+        _id
+        username
+        email
+      }
     }
   }
 `;
 
-export const CREATE_VOTE = gql`
-  mutation createVote($_id: String!, $bookNum: Int!) {
-    creatVote(_id: $_id, bookNum: $bookNum) {
+// Mutation to create a new user (sign up)
+export const ADD_USER = gql`
+  mutation addUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
+      token
+      user {
+        _id
+        username
+        email
+      }
+    }
+  }
+`;
+
+// Mutation to save a book to the user's profile
+export const SAVE_BOOK = gql`
+  mutation saveBook($bookData: BookInput!) {
+    saveBook(bookData: $bookData) {
       _id
-      book1
-      book2
-      book1_votes
-      book2_votes
+      username
+      email
+      savedBooks {
+        bookId
+        authors
+        title
+        description
+        image
+        link
+      }
+    }
+  }
+`;
+
+// Mutation to remove a book from the user's profile
+export const REMOVE_BOOK = gql`
+  mutation removeBook($bookId: ID!) {
+    removeBook(bookId: $bookId) {
+      _id
+      username
+      email
+      savedBooks {
+        bookId
+        authors
+        title
+        description
+        image
+        link
+      }
     }
   }
 `;

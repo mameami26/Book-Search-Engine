@@ -1,21 +1,20 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_BOOK = gql`
-  query book {
-    book {
+// Query to get the current logged-in user (the "me" query)
+export const GET_ME = gql`
+  query me {
+    me {
       _id
-      name
-    }
-  }
-`;
-export const QUERY_USER = gql`
-  query user($_id: String) {
-    user(_id: $_id) {
-      _id
-      book1
-      book2
-      book1_votes
-      book2_votes
+      username
+      email
+      savedBooks {
+        bookId
+        authors
+        title
+        description
+        image
+        link
+      }
     }
   }
 `;

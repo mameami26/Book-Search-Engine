@@ -8,7 +8,7 @@ import {
 } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/client'; // Added useQuery and useMutation for GraphQL operations
 import { GET_ME } from '../utils/queries'; // Importing the GET_ME query
-import { REMOVE_BOOK } from '../utils/mutations'; // Importing the REMOVE_BOOK mutation
+import { REMOVE_BOOK } from '../utils/mutation'; // Importing the REMOVE_BOOK mutation
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
