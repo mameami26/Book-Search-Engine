@@ -1,5 +1,5 @@
 *.env
 *node_modules
 *dist
-*Package-lock.json
+*package-lock.json
 node_modules
